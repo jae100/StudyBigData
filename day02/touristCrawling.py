@@ -92,9 +92,14 @@ def main():
     if natName == '':
         print('데이터가 전달되지 않았습니다. 공공데이터포탈의 서비스 상태를 확인하기 바랍니다.')
     else:
-        #파일저장 1 : json 파일
-        with open('')
-        pass
+        #파일저장 csv
+        columns = ['입국국가','국가코드','입국연월','입국자수']
+        result_df = pd.DataFrame(result, columns=columns)
+        result_df.to_csv(f'./{natName}_{ed}_{nStartYear}_{dataEnd}.csv', index=False,
+                        encoding='utf8')
+
+        print('csv파일저장완료')
+
 
 if __name__ == '__main__':
     main()
