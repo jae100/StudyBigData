@@ -32,4 +32,7 @@
  - 빅데이터 분석
   - 지리정보분석
 
-
+## PyQt 1
+  - PyQt5 학습
+    - PyQt5, PyQt5Designer 설치
+    - PyQt5 기본폼
