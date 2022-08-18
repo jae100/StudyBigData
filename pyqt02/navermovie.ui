@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
+    <width>492</width>
     <height>456</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>네이버뉴스 검색</string>
+   <string>네이버영화 검색</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -27,7 +27,7 @@
     <rect>
      <x>10</x>
      <y>0</y>
-     <width>461</width>
+     <width>471</width>
      <height>91</height>
     </rect>
    </property>
@@ -37,14 +37,14 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>40</y>
       <width>64</width>
-      <height>15</height>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>검색어</string>
+     <string>영화제목</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -56,7 +56,7 @@
    <widget class="QLineEdit" name="txtSearch">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>70</x>
       <y>30</y>
       <width>301</width>
       <height>31</height>
@@ -66,7 +66,7 @@
    <widget class="QPushButton" name="btnSearch">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>380</x>
       <y>30</y>
       <width>81</width>
       <height>31</height>
@@ -82,9 +82,12 @@
     <rect>
      <x>10</x>
      <y>110</y>
-     <width>461</width>
+     <width>471</width>
      <height>331</height>
     </rect>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::ExtendedSelection</enum>
    </property>
   </widget>
  </widget>

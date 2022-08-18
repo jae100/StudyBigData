@@ -39,7 +39,7 @@ class qTemplate(QWidget):
     # 생성자, 생성자는 기본적으로 return값이 없다. 그래서 None
     def __init__(self) -> None:
         super().__init__()
-        uic.loadUi('./pyqt02/navernews.ui',self)
+        uic.loadUi('./pyqt02/navermovie.ui',self)
         self.initUI()
     
     def initUI(self) -> None:
@@ -53,7 +53,7 @@ class qTemplate(QWidget):
 
     def tblResultSelected(self)-> None:
         selected = self.tblResult.currentRow()
-        link = self.tblResult.item(selected, 1).text()
+        link = self.tblResult.item(selected, 2).text()
         webbrowser.open(link)
 
 
@@ -61,7 +61,7 @@ class qTemplate(QWidget):
     def btnSearchClicked(self) -> None: # 슬롯(이벤트핸들러)
         jsonResult = []
         totalResult = []
-        keyword = 'news'
+        keyword = 'movie'
         search_word = self.txtSearch.text()
         display_count = 100
 
@@ -88,19 +88,23 @@ class qTemplate(QWidget):
 
     def makeTable(self, result):
         self.tblResult.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.tblResult.setColumnCount(2)
+        self.tblResult.setColumnCount(3)
         self.tblResult.setRowCount(len(result)) # displayCount에 따라서 변경,현재는 50
-        self.tblResult.setHorizontalHeaderLabels(['기사제목','뉴스링크'])
-        self.tblResult.setColumnWidth(0, 350)
+        self.tblResult.setHorizontalHeaderLabels(['영화제목','상영년도','뉴스링크'])
+        self.tblResult.setColumnWidth(0, 250)
         self.tblResult.setColumnWidth(1, 100)
+        self.tblResult.setColumnWidth(2, 100) # 세번째칼럼 길이
         self.tblResult.setEditTriggers(QAbstractItemView.NoEditTriggers) #readonly
 
         i=0
         for item in result:
             title = self.strip_tag(item[0]['title'])
-            link = item[0]['originallink']
-            self.tblResult.setItem(i, 0, QTableWidgetItem(title))
-            self.tblResult.setItem(i, 1, QTableWidgetItem(link))
+            subtitle = self.strip_tag(item[0]['subtitle'])
+            pubDate = item[0]['pubDate']
+            link = item[0]['link']
+            self.tblResult.setItem(i, 0, QTableWidgetItem(f'{title} / {subtitle}'))
+            self.tblResult.setItem(i, 1, QTableWidgetItem(pubDate))
+            self.tblResult.setItem(i, 2, QTableWidgetItem(link))
             i+=1
 
 
@@ -108,14 +112,13 @@ class qTemplate(QWidget):
     def getPostData(self,post): #내가 원하는 데이터를 뽑기 위해서 하위의 json코드를 선택하는 것
         temp = []
         title = post['title']
-        description = post['description']
-        originallink = post['originallink']
+        subtitle = post['subtitle']
         link = post['link']
         pubDate = post['pubDate']
 
         temp.append({'title':title,
-                    'description':description,
-                    'originallink':originallink,
+                     'subtitle':subtitle,
+                     'pubDate':pubDate,
                     'link':link})
 
         return temp

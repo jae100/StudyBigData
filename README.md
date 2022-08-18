@@ -37,3 +37,8 @@
   - PyQt5 학습
     - PyQt5, PyQt5Designer 설치
     - PyQt5 기본폼
+  
+## PyQt2
+  - PyQt5 학습
+    - Qt Designer로 UI 생성
+    - naver API로 네이버 뉴스, 영화 검색 앱 만들기
