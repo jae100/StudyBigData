@@ -30,10 +30,6 @@
   <property name="windowTitle">
    <string>네이버뉴스 검색</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>naver_icon.png</normaloff>naver_icon.png</iconset>
-  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>

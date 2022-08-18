@@ -154,7 +154,7 @@ class qTemplate(QWidget):
 
     def getPostData(self,post): #내가 원하는 데이터를 뽑기 위해서 하위의 json코드를 선택하는 것
         temp = []
-        title = self.strip_tagpost[post['title']] # 모든곳에서 html태그 제거 
+        title = self.strip_tag(post['title']) # 모든곳에서 html태그 제거 
         description = post['description']
         originallink = post['originallink']
         link = post['link']
